@@ -5,6 +5,15 @@ var destination = "";
 var time = "";
 var frequency = "";
 
+//moment js variables
+var timeConverted = "";
+var currentTime = "";
+var diffTime = "";
+var timeApart = "";
+var timeUntillTrain = "";
+var nextTrain = "";
+var nextTrainFormat ="";
+
 //firebase init
 var config = {
     apiKey: "AIzaSyA2mDT-x7-ebfk--nodKNKNwOgsoaoT8EA",
@@ -27,24 +36,41 @@ $("#add-train").on("click", function(event) { //submit button
     destination = $("#destinationInput").val().trim();
     time = $("#timeInput").val().trim();
     frequency = $("#frequencyInput").val().trim();
+
+    //moment js calculations
+    var timeConverted = moment(time, "hh:mm").subtract(1, "years");
+    var currentTime = moment();
+    var diffTime = moment().diff(moment(timeConverted), "minutes");
+    var timeApart = diffTime % frequency;
+    var timeUntillTrain = frequency - timeApart;
+    var nextTrain = moment().add(timeUntillTrain, "minutes");
+    var nextTrainFormat = moment(nextTrain).format("hh:mm");
     //debug
     console.log(train);
     console.log(destination);
     console.log(time);
     console.log(frequency);
+    console.log(timeConverted);
+    console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
+    console.log(timeApart);
+    console.log("MINUTES UNTILL TRAIN: " + timeUntillTrain);
+    console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
 
-    database.ref().push({ //pushes user input from form to firebase reference
+    database.ref().push({ //pushes user input to firebase reference
         train: train,
         destination: destination,
         time: time,
-        frequency: frequency
+        frequency: frequency,
+        timeUntillTrain: timeUntillTrain,
+        nextTrainFormat: nextTrainFormat
     });
 
     database.ref().on("child_added", function(childSnapshot) { //attaches event handler for database
 
         //adds data to tableOutout
         $("#tableOutput").append("<tr> <td>" + childSnapshot.val().train + " </td><td> " + childSnapshot.val().destination +
-            " </td><td> " + childSnapshot.val().time + "</td><td></td><td> " + childSnapshot.val().frequency + " </td><td></td></tr>");
+            " </td><td> " + childSnapshot.val().frequency + "</td><td> " + childSnapshot.val().nextTrainFormat + "</td><td> " + childSnapshot.val().timeUntillTrain + " </td></tr>"
+            );
     });
 
 });
