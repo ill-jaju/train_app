@@ -1,23 +1,24 @@
 body {
-	color: white;
-	background-color: black;
+    color: white;
+    background-image: url('../images/bwbg.jpg');
+    background-position: center;
 }
 
 .jumbotron {
-	text-align: center;
-	background-color: transparent;
+    text-align: center;
+    background-color: rgba(0, 0, 0, .1);
 }
 
 .panel {
-	border: none;
-	box-shadow: none;
-	background-color: black;
+    border: none;
+    box-shadow: none;
+    background-color: rgba(0, 0, 0, .4);
 }
 
-.panel-heading{
-	background-color: transparent!important;
+.panel-heading {
+    background-color: transparent!important;
 }
 
 .panel-title {
-	color: white;
+    color: white;
 }
