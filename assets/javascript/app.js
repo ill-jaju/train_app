@@ -80,6 +80,6 @@ $(document).ready(function() {
 
     var interval = setInterval(function() {
         var momentNow = moment();
-        $('.clock').html(momentNow.format('hh:mm:ss A'));
+        $('.clock').html("CURRENT TIME: " +momentNow.format('hh:mm:ss A'));
     }, 100);
 });
