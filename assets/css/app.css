@@ -1,5 +1,23 @@
+body {
+	color: white;
+	background-color: black;
+}
+
+.jumbotron {
+	text-align: center;
+	background-color: transparent;
+}
+
 .panel {
 	border: none;
 	box-shadow: none;
+	background-color: black;
 }
 
+.panel-heading{
+	background-color: transparent!important;
+}
+
+.panel-title {
+	color: white;
+}

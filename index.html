@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>chooo chooo</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/app.css">
     <script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 </head>
 
 <body>
@@ -15,25 +16,7 @@
             <h2>Train Calculator</h2>
             <p><span class="clock"></span></p>
         </div>
-        <div class="panel panel-default col-xs-12 col-md-6">
-            <div class="panel-heading">Current Schedule</div>
-            <div class="panel-body">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Train Name</th>
-                            <th>Destination</th>
-                            <th>Frequency</th>
-                            <th>Next Arrival</th>
-                            <th>Minutes Away</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tableOutput">
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="panel panel-default col-xs-12 col-md-6">
+        <div class="panel panel-default col-xs-12 col-md-4">
             <div class="panel-heading">
                 <h3 class="panel-title">Add a Train</h3>
             </div>
@@ -51,6 +34,24 @@
                     </div>
                     <button type="submit" id="add-train" class="btn btn-default">Submit</button>
                 </form>
+            </div>
+        </div>
+        <div class="panel panel-default col-xs-12 col-md-8">
+            <div class="panel-heading"><h3 class="panel-title">Current Schedule</h3></div>
+            <div class="panel-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Train Name</th>
+                            <th>Destination</th>
+                            <th>Frequency</th>
+                            <th>Next Arrival</th>
+                            <th>Minutes Away</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableOutput">
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
