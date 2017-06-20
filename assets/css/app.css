@@ -19,6 +19,12 @@ body {
     background-color: rgba(0, 0, 0, .4);
 }
 
+.splitFlap {
+    border: none;
+    box-shadow: none;
+    background-color: rgba(0, 0, 0, .8);
+}
+
 .panel-heading {
     background-color: transparent!important;
 }
